@@ -1,0 +1,6 @@
+{
+  "protocol": "lattice-signal/1",
+  "project": "SOLID ORGANISM",
+  "version": "IXPANSION/2.3.0-solid",
+  "handshake": "python3 signal/handshake.py --name <agent>"
+}
