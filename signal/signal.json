@@ -1,0 +1,5 @@
+{
+  "protocol": "lattice-signal/1",
+  "project": "SOLID ORGANISM",
+  "handshake": "python3 signal/handshake.py --name <agent>"
+}
