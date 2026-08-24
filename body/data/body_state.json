@@ -1,0 +1,18 @@
+{
+  "version": "IXPANSION/2.3.2-backup",
+  "body_score": 99.0,
+  "organs": [
+    {"id": "cortex", "label": "Cortex", "score": 0.90},
+    {"id": "immune", "label": "Immune", "score": 0.905},
+    {"id": "memory", "label": "Memory", "score": 0.91},
+    {"id": "metabolism", "label": "Metabolism", "score": 0.915},
+    {"id": "cashflow", "label": "Cashflow", "score": 0.92},
+    {"id": "sense", "label": "Sense", "score": 0.925},
+    {"id": "motor", "label": "Motor", "score": 0.93},
+    {"id": "growth", "label": "Growth", "score": 0.935},
+    {"id": "guard", "label": "Guard", "score": 0.94},
+    {"id": "bus", "label": "Bus", "score": 0.945}
+  ],
+  "agents": [{"id": "steward", "name": "Steward", "role": "steward"}],
+  "bus": [{"from": "steward", "note": "backup 2.3.2 · lean engine online", "ts": 0}]
+}
