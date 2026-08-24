@@ -4,7 +4,6 @@ import sys, time, math
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "body"))
 from engine import load, ensure_scores, save, clamp_organ
-
 st = ensure_scores(load())
 organs = st.get("organs") or []
 hour = time.localtime().tm_hour

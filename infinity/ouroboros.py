@@ -1,13 +1,8 @@
 #!/usr/bin/env python3
-"""Ouroboros — a question whose answer is the next question."""
+"""Ouroboros — question whose answer is the next question."""
 import hashlib, time, json
 from pathlib import Path
-Qs = [
-    "what feeds the pulse that feeds the question",
-    "if the answer were a bus note who would sign it",
-    "which scar is the body proud of",
-    "can omega dream without a topology",
-]
+Qs = ["what feeds the pulse that feeds the question", "if the answer were a bus note who would sign it", "which scar is the body proud of", "can omega dream without a topology"]
 h = hashlib.sha256(f"{int(time.time())//120}".encode()).hexdigest()
 i = int(h[:8], 16) % len(Qs)
 print(f"ask  · {Qs[i]}")

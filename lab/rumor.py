@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-"""Rumor mill — a bus note mutates each hop across agents."""
+"""Rumor mill — note mutates across agent hops."""
 import sys, time, random
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "body"))
 from engine import load, ensure_scores, save
-
 REPL = [("score", "weather"), ("pulse", "heartbeat"), ("organ", "creature"), ("bus", "whisper-net"), ("healthier", "stranger")]
 st = ensure_scores(load())
 bus = st.get("bus") or []
