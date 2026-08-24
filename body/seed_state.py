@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Seed a minimal body_state if missing."""
+"""Seed minimal body_state if missing."""
 import json, time
 from pathlib import Path
 DATA = Path(__file__).resolve().parent / "data"
@@ -10,7 +10,7 @@ def main():
     if STATE.exists():
         print("seed · already present"); return
     st = {
-        "version": "IXPANSION/2.3.2-backup",
+        "version": "IXPANSION/2.3.3-suture",
         "body_score": 99.0,
         "organs": [{"id": o, "label": o.title(), "score": 0.90} for o in ORGANS],
         "agents": [{"id": "steward", "name": "Steward", "role": "steward"}],

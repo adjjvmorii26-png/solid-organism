@@ -1,4 +1,4 @@
-"""Tuner agent — small organ nudges."""
+"""Tuner — organ nudges."""
 def tune(organ: dict, delta: float = 0.01) -> dict:
     organ = dict(organ)
     s = float(organ.get("score", 0.8))

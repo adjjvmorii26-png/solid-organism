@@ -1,4 +1,4 @@
-"""Lantern — dim paths get a little light."""
+"""Lantern — score to weather."""
 def light(score: float) -> str:
     if score >= 95: return "aurora"
     if score >= 88: return "clear"
