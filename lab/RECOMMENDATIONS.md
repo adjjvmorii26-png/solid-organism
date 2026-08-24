@@ -1,8 +1,11 @@
-# Experimental recommendations (next)
+# Experimental recommendations
 
-1. **Dream organ** — promote `negative_space` picks into a real 11th organ with TTL.
-2. **Bus archaeology** — reconstruct a day from bus scars alone (kintsugi, cordyceps, omega).
-3. **Cross-repo limb** — one public GitHub Action that POSTs `/api/pulse` daily and commits the score.
-4. **Steward duel** — SynthHall room where Pulse and Steward must agree on one axiom change.
-5. **Entropy budget** — omega chaos_reactor cannot exceed daily quota without phoenix countersign.
-6. **Holographic HUD** — mesh NEXUS reads `sky_override` from constellation dice.
+## Live
+suture · circadian · rumor · shadow_ledger · bus_archaeology · kintsugi · cordyceps · dice · symmetry_break · ouroboros
+
+## Next
+1. Dream organ from negative_space (TTL)
+2. Daily public pulse GH Action
+3. Steward duel in SynthHall
+4. Entropy budget + phoenix countersign
+5. Rumor quarantine filter on bus
