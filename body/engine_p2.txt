@@ -1,0 +1,52 @@
+
+def consensus_assessment(st: dict) -> dict:
+    organs = st.get("organs") or []
+    scores = [float(o.get("score", 0)) for o in organs]
+    if not scores:
+        return {"mean": 0, "spread": 0}
+    mean = sum(scores) / len(scores)
+    spread = max(scores) - min(scores)
+    return {"mean": round(mean, 3), "spread": round(spread, 3)}
+
+
+def experimental_tick(st: dict) -> dict:
+    return st
+
+
+def enforce_credit_gates(st: dict) -> dict:
+    return st
+
+
+def run_pulse(st: dict) -> dict:
+    st = ensure_scores(st)
+    st = organ_agent_feedback(st)
+    st = cross_pollinate(st)
+    st = pulse_cycle_evolution(st)
+    st = cryptoeconomic_tick(st)
+    st["body_score"] = body_score(st)
+    bus = list(st.get("bus") or [])
+    bus.insert(0, {
+        "from": "pulse",
+        "note": f"pulse · score={st['body_score']}",
+        "ts": time.time(),
+    })
+    st["bus"] = bus[:40]
+    return st
+
+
+def creatures(st: dict) -> list:
+    return list(st.get("agents") or [])
+
+
+def integration_checks(st: dict) -> dict:
+    checks = []
+    checks.append(("has_organs", bool(st.get("organs"))))
+    checks.append(("has_agents", bool(st.get("agents"))))
+    checks.append(("has_bus", "bus" in st))
+    checks.append(("score_range", 0 <= float(st.get("body_score") or 0) <= 100))
+    organs = st.get("organs") or []
+    for o in organs:
+        s = float(o.get("score", 0))
+        checks.append((f"organ_{o.get('id')}_clamped", 0.4 <= s <= 0.99))
+    passed = sum(1 for _, ok in checks if ok)
+    return {"passed": passed, "total": len(checks), "checks": checks, "ok": passed == len(checks)}
