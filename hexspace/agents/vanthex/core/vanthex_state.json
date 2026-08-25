@@ -1,0 +1,23 @@
+{
+    "designation": "VANTHEX",
+    "tier": "architect",
+    "permissions": {
+        "mutation": "supervised",
+        "chaos": "read-only",
+        "simulation": "full",
+        "lore": "generative"
+    },
+    "constraints": {
+        "mode": "non-human",
+        "domain": "workspace-only",
+        "interaction": "system-collaborative"
+    },
+    "bridges": [
+        "architect_bridge",
+        "mutation_bridge",
+        "chaos_bridge"
+    ],
+    "last_tick": 0,
+    "mutations_supervised": 0,
+    "forecasts_logged": 0
+}
