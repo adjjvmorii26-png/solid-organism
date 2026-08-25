@@ -1,11 +1,14 @@
-# Experimental recommendations
+# Experiments live
 
-## Live
-suture · circadian · rumor · shadow_ledger · bus_archaeology · kintsugi · cordyceps · dice · symmetry_break · ouroboros
+mycelium · echo_chamber · tide_pool · mirror_twin · seed_crystal
+dream_organ · rumor_quarantine · daily_receipt · kintsugi · cordyceps
+suture · circadian · rumor · shadow_ledger · bus_archaeology
 
-## Next
-1. Dream organ from negative_space (TTL)
-2. Daily public pulse GH Action
-3. Steward duel in SynthHall
-4. Entropy budget + phoenix countersign
-5. Rumor quarantine filter on bus
+# Weird / infinity / omega
+liminal · ouija · seance · paradox_seed · fault_line · ouroboros
+
+# Next
+1. Mycelium graph → NEXUS HUD edges
+2. Crystal organs resist tide + chaos
+3. Fault-line votes in SynthHall
+4. Liminal daemon only schedules night jobs
