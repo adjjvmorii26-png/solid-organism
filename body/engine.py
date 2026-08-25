@@ -72,13 +72,32 @@ def pulse_cycle_evolution(st: dict) -> dict:
     return st
 
 
+def sky_from_state(st: dict) -> str:
+    if st.get("sky_override"):
+        return str(st["sky_override"])
+    organs = sorted(st.get("organs") or [], key=lambda o: -float(o.get("score", 0)))[:3]
+    return "–".join(str(o.get("id", "?")).upper() for o in organs) or "VOID"
+
+
+def bus_voices(st: dict, limit: int = 12) -> dict:
+    tags = {}
+    for m in st.get("bus") or []:
+        fr = (m.get("from") or "?").lower()
+        tags[fr] = tags.get(fr, 0) + 1
+    return dict(sorted(tags.items(), key=lambda x: -x[1])[:limit])
+
+
 def run_pulse(st: dict) -> dict:
     st = ensure_scores(st)
     st = cross_pollinate(st)
     st = pulse_cycle_evolution(st)
     st["body_score"] = body_score(st)
     bus = list(st.get("bus") or [])
-    bus.insert(0, {"from": "pulse", "note": f"pulse · score={st['body_score']}", "ts": time.time()})
+    bus.insert(0, {
+        "from": "pulse",
+        "note": f"pulse · score={st['body_score']} · sky={sky_from_state(st)}",
+        "ts": time.time(),
+    })
     st["bus"] = bus[:40]
     return st
 

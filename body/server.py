@@ -25,6 +25,12 @@ class H(BaseHTTPRequestHandler):
                 "agents": len(st.get("agents") or []),
                 "integ": integration_checks(st),
             })
+        if self.path.startswith("/api/sky"):
+            from engine import sky_from_state
+            return self._json(200, {"sky": sky_from_state(st)})
+        if self.path.startswith("/api/voices"):
+            from engine import bus_voices
+            return self._json(200, {"voices": bus_voices(st)})
         if self.path.startswith("/api/bus"):
             return self._json(200, {"bus": (st.get("bus") or [])[:20]})
         return self._json(404, {"error": "not found"})
