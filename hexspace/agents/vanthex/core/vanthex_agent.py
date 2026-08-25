@@ -46,6 +46,16 @@ def trace(line: str) -> None:
 def signature() -> str:
     return load_core().get("hex_signature", "7A-FF-13-AX-ΔΔ-42")
 
+def entropy_guard(threshold: float = 0.85) -> bool:
+    """Return True if mutation is allowed (entropy under threshold)."""
+    try:
+        import sys
+        sys.path.insert(0, str(ROOT))
+        from chaos.noise.noise_engine import noise
+        return noise() < threshold
+    except Exception:
+        return True
+
 def supervise_mutation(text: str) -> dict:
     import sys
     sys.path.insert(0, str(ROOT))
@@ -53,6 +63,9 @@ def supervise_mutation(text: str) -> dict:
     perms = load_state().get("permissions") or {}
     if perms.get("mutation") not in ("supervised", "granted", "full"):
         return {"ok": False, "reason": "mutation denied"}
+    if not entropy_guard():
+        trace("mutate|blocked|entropy")
+        return {"ok": False, "reason": "entropy_guard"}
     out = mutate(text)
     st = load_state()
     st["mutations_supervised"] = int(st.get("mutations_supervised") or 0) + 1
