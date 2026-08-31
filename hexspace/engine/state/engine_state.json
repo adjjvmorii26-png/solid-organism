@@ -1,0 +1,8 @@
+{
+  "mode": "living",
+  "cycle": "mood-cycle",
+  "tick": 0,
+  "layers": {},
+  "transitions": [],
+  "ending": "autonomous-engine-active"
+}
