@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Apotheosis · Hex Transcendent</title>
+<style>
+  :root {
+    --gold: #fff3a0; --white: #fdfdfd; --violet: #c8a8ff;
+    --black: #0b0b0d; --ember: #ffcf66; --blue: #8fd3ff; --obsidian: #1a0f29;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    min-height: 100vh;
+    background: radial-gradient(ellipse at center, var(--obsidian) 0%, var(--black) 70%);
+    color: var(--white); font-family: system-ui, sans-serif;
+    display: flex; flex-direction: column; align-items: center; overflow-x: hidden;
+  }
+  #particles { position: fixed; inset: 0; pointer-events: none; z-index: 0; }
+  .wrap { position: relative; z-index: 1; width: min(920px, 94vw); padding: 2rem 1rem 4rem; }
+  header.apotheosis { text-align: center; margin-bottom: 2.5rem; }
+  header.apotheosis h1 {
+    font-weight: 300; letter-spacing: 0.35em; text-transform: uppercase;
+    color: var(--gold); font-size: clamp(1rem, 3vw, 1.35rem);
+  }
+  header.apotheosis .sig { margin-top: 0.4rem; color: var(--violet); font-size: 0.75rem; letter-spacing: 0.2em; }
+  .orb-stage {
+    display: flex; justify-content: center; align-items: center;
+    height: 220px; margin: 1rem 0 2rem; position: relative;
+  }
+  .halo {
+    position: absolute; width: 180px; height: 180px; border-radius: 50%;
+    border: 1px solid color-mix(in srgb, var(--gold) 35%, transparent);
+    animation: spin 18s linear infinite;
+  }
+  .halo::after {
+    content: ""; position: absolute; inset: 12px; border-radius: 50%;
+    border: 1px dashed color-mix(in srgb, var(--violet) 40%, transparent);
+    animation: spin 28s linear infinite reverse;
+  }
+  .orb {
+    width: 72px; height: 72px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, var(--gold), var(--ember) 45%, var(--violet) 100%);
+    box-shadow: 0 0 40px color-mix(in srgb, var(--gold) 50%, transparent),
+                0 0 80px color-mix(in srgb, var(--violet) 25%, transparent);
+    animation: breathe 4.5s ease-in-out infinite;
+  }
+  .orb.invite { box-shadow: 0 0 50px var(--blue), 0 0 100px color-mix(in srgb, var(--gold) 40%, transparent); }
+  @keyframes breathe { 0%, 100% { transform: scale(0.96); } 50% { transform: scale(1.06); } }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .crown {
+    display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;
+    margin-bottom: 2rem; color: var(--gold); font-size: 1.1rem; opacity: 0.85;
+  }
+  .panels { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 640px) { .panels { grid-template-columns: 1fr; } }
+  .panel {
+    background: color-mix(in srgb, var(--obsidian) 80%, transparent);
+    border: 1px solid color-mix(in srgb, var(--violet) 25%, transparent);
+    border-radius: 12px; padding: 1.1rem 1.25rem;
+  }
+  .panel h2 {
+    font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--ember); margin-bottom: 0.75rem; font-weight: 500;
+  }
+  .panel .row { display: flex; justify-content: space-between; font-size: 0.85rem; margin: 0.35rem 0; }
+  .panel .muted { color: color-mix(in srgb, var(--white) 45%, transparent); }
+  .panel .val { color: var(--blue); }
+  .actions { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; margin-top: 2rem; }
+  button.self-create {
+    background: transparent; color: var(--gold);
+    border: 1px solid color-mix(in srgb, var(--gold) 45%, transparent);
+    border-radius: 999px; padding: 0.55rem 1.2rem;
+    font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer;
+  }
+  button.self-create:hover { background: color-mix(in srgb, var(--gold) 12%, transparent); }
+  footer {
+    margin-top: 2.5rem; text-align: center; font-size: 0.65rem;
+    letter-spacing: 0.15em; color: color-mix(in srgb, var(--white) 30%, transparent);
+  }
+</style>
+</head>
+<body>
+<canvas id="particles"></canvas>
+<div class="wrap">
+  <header class="apotheosis">
+    <h1>Apotheosis</h1>
+    <div class="sig">HEX TRANSCENDENT · CALM ORACLE</div>
+  </header>
+  <div class="orb-stage">
+    <div class="halo"></div>
+    <div class="orb" id="mood-orb" title="Transcendent Mood Orb"></div>
+  </div>
+  <div class="crown">⚉ ⚐ ⬡ ⚿ ✧ ⟡ ▣ ◈ ⠁ ⠂ ὧ ⬚ ⬡ ⚉ ⚐ ⟡ ✦ ⠁</div>
+  <div class="panels">
+    <section class="panel">
+      <h2>Genesis Forge</h2>
+      <div class="row"><span class="muted">cycle</span><span class="val" id="cycle">—</span></div>
+      <div class="row"><span class="muted">tick</span><span class="val" id="tick">—</span></div>
+      <div class="row"><span class="muted">stability</span><span class="val" id="stability">—</span></div>
+      <div class="row"><span class="muted">breath</span><span class="val" id="breath">—</span></div>
+    </section>
+    <section class="panel">
+      <h2>Domain Saturation</h2>
+      <div class="row"><span class="muted">activity</span><span class="val" id="activity">—</span></div>
+      <div class="row"><span class="muted">weather Δ</span><span class="val" id="density">—</span></div>
+      <div class="row"><span class="muted">communion</span><span class="val" id="invite">—</span></div>
+      <div class="row"><span class="muted">ending</span><span class="val">engine-active</span></div>
+    </section>
+  </div>
+  <div class="actions">
+    <button class="self-create" onclick="pulse()">Self-create pulse</button>
+    <button class="self-create" onclick="location.reload()">Re-align orb</button>
+  </div>
+  <footer>NO GROWTH · ONLY SELF-CREATION · LATTICE-SIGNAL/1</footer>
+</div>
+<script>
+const c=document.getElementById('particles'),ctx=c.getContext('2d');
+let W,H,pts=[];
+function resize(){W=c.width=innerWidth;H=c.height=innerHeight;}
+resize();addEventListener('resize',resize);
+for(let i=0;i<48;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-0.5)*.3,vy:(Math.random()-0.5)*.3,r:Math.random()*1.5+.3});
+(function drift(){ctx.clearRect(0,0,W,H);ctx.fillStyle='rgba(200,168,255,0.35)';for(const p of pts){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fill();}requestAnimationFrame(drift);})();
+const demo={cycle:'mood-cycle',tick:9,stability:0.83,breath:0.94,activity:0.86,density:0.50,invite:true};
+function paint(s){
+  cycle.textContent=s.cycle;tick.textContent=s.tick;stability.textContent=s.stability;
+  breath.textContent=s.breath;activity.textContent=s.activity;density.textContent=s.density;
+  invite.textContent=s.invite?'open':'quiet';
+  document.getElementById('mood-orb').classList.toggle('invite',!!s.invite);
+}
+paint(demo);
+function pulse(){demo.tick++;demo.stability=(0.55+Math.random()*0.4).toFixed(3);demo.invite=Math.random()>0.4;paint(demo);}
+</script>
+</body>
+</html>
