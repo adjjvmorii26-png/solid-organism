@@ -1,0 +1,26 @@
+{
+  "name": "Transcendent Visual Identity",
+  "colors": {
+    "apotheosis_gold": "#fff3a0",
+    "continuum_white": "#fdfdfd",
+    "dimensional_violet": "#c8a8ff",
+    "primefield_black": "#0b0b0d",
+    "forge_ember": "#ffcf66",
+    "kinship_blue": "#8fd3ff",
+    "obsidian_mirror": "#1a0f29"
+  },
+  "motion": ["breathing", "genesis_pulse", "dimensional_drift"],
+  "layout": ["center_weighted", "radial_info", "depth_layers"],
+  "philosophy": {
+    "replace_growth_with": "self-creation",
+    "tone": "calm oracle"
+  },
+  "components": [
+    "Apotheosis Banner",
+    "Genesis Forge Panel",
+    "Domain Saturation Map",
+    "Transcendent Mood Orb",
+    "Particle Drift Layer",
+    "Transcension Glyph Pack"
+  ]
+}
