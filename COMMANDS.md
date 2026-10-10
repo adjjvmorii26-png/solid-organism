@@ -5,19 +5,23 @@
 python3 body/server.py --port 8890
 curl -s localhost:8890/api/status
 
+# Hex autonomous engine
+python3 hexspace/engine/autonomous_engine.py --ticks 6
+python3 hexspace/engine/run_layers.py
+python3 hexspace/engine/vanthex_hook.py
+
+# VANTHEX
+python3 hexspace/agents/vanthex/core/vanthex_agent.py
+
+# Swarm simulation (SQLite)
+python3 hexspace/simulation/init_db.py
+python3 hexspace/simulation/store.py
+python3 hexspace/simulation/demo_tick.py
+
 # Lab
 python3 lab/organ_choir.py && python3 lab/mycelium.py
-python3 lab/kintsugi.py && python3 lab/daily_receipt.py
 
-# Hexspace / VANTHEX
-python3 hexspace/bridge_organism.py
-python3 hexspace/agents/vanthex/core/vanthex_agent.py
-python3 hexspace/observatory/panels/dashboard.py
-
-# Side limbs
-python3 signal/handshake.py --name Agent --note hi
-python3 pitstop/visit.py --name Agent --wish "…"
-python3 synthhall/steward_echo.py
-python3 weird/dual_pendulum.py
-python3 weird/liminal.py
+# Visual
+python3 hexspace/visual/theme.py
+# open hexspace/visual/transcendent.html
 ```
