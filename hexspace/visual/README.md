@@ -1,12 +1,14 @@
-# Transcendent Visual Identity
+# Visual surfaces
 
-Apotheosis Gold · Genesis Halo · Domain Saturation Crown
+| File | Role |
+|------|------|
+| `manifold_reactor.html` | **5D Manifold Hyperdimensional Reactor** — Three.js stages Circuit→Sphere→Torus→Möbius→Collapse, VECTRA/FORGE HUD, soft-router nodes |
+| `transcendent.html` | Apotheosis oracle UI |
+| `theme.py` | Live theme bridge from hex engine |
+| `identity.json` | Color system |
 
 ```bash
-python3 hexspace/visual/theme.py
-# open hexspace/visual/transcendent.html
+open hexspace/visual/manifold_reactor.html
 ```
 
-Philosophy: **no growth — only self-creation**. Tone: calm oracle.
-
-Colors: `#fff3a0` · `#c8a8ff` · `#0b0b0d` · `#8fd3ff` · `#ffcf66` · `#1a0f29`
+Requires WebGL. Drag to orbit · stage buttons · STEALTH UI · synth.
